@@ -81,18 +81,13 @@ void erase_zeros(int *&a, int &n) {
 // Дано число N(> 1) и набор из 10 целых положительных чисел.
 // С помощью функции IsPowerN найти количество степеней числа N в данном наборе.
 // case 2
-//bool IsPowerN(int k, int n) {
-//	if (k > 0 && n > 1)
-//	{
-//		for (int i = 1; i <= k; i*=n)
-//		{
-//			if (i == k) return true;
-//			if (i > k) return false;
-//		}
-//	}
-//	else
-//		return false;
-//}
+bool IsPowerN(int k, int n) {
+	if (k > 0 && n > 1)
+		for (int i = n; i <= k; i*=n)
+			if (i == k) return true;
+	else
+		return false;
+}
 // 5.	Дана матрица размера M × N и целое число K(1 ≤ K ≤ N).
 // Вывести элементы K - го столбца данной матрицы.
 // case 3
@@ -134,23 +129,23 @@ int main()
 		break;
 		case 2:
 		{
-	/*		int n;
+			int n;
 			int *p;
-			cout << "Enter N>1:" << endl;
-			cin >> n;
 			createArray(p, 10);
 			fillArray2(p, 10);
 			printArray(p, 10);
+			cout << "Enter N>1:" << endl;
+			cin >> n;
 			int j = 0;
 			for (int i = 0; i < 10; i++)
 			{
 				if (IsPowerN(p[i], n)==true)
 				{
-					cout << p[i] << " ";
+					cout << "элементы, являющиеся степенями числа "<< n <<": "<< p[i] << " ";
 					j++;
 				}
 			}
-				cout << endl << j << endl;*/
+			cout << endl << "количество степеней числа N в данном наборе: " << j << endl << endl;
 		}
 		break;
 		case 3:
