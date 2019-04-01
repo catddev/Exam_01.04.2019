@@ -81,10 +81,14 @@ void erase_zeros(int *&a, int &n) {
 // Дано число N(> 1) и набор из 10 целых положительных чисел.
 // С помощью функции IsPowerN найти количество степеней числа N в данном наборе.
 // case 2
+//
 bool IsPowerN(int k, int n) {
 	if (k > 0 && n > 1)
-		for (int i = n; i <= k; i*=n)
-			if (i == k) return true;
+	{
+		while (k % n==0)
+			k /= n;
+		return (k == 1);
+	}
 	else
 		return false;
 }
@@ -137,11 +141,12 @@ int main()
 			cout << "Enter N>1:" << endl;
 			cin >> n;
 			int j = 0;
+			cout << "элементы, являющиеся степенями числа " << n << ": " << endl;
 			for (int i = 0; i < 10; i++)
 			{
-				if (IsPowerN(p[i], n)==true)
+				if (IsPowerN(p[i], n))
 				{
-					cout << "элементы, являющиеся степенями числа "<< n <<": "<< p[i] << " ";
+					cout << p[i] << " ";
 					j++;
 				}
 			}
