@@ -19,7 +19,7 @@ void fillArray(int *a, int n) {
 }
 void fillArray2(int *a, int n) {
 	for (int i = 0; i < n; i++)
-		a[i] = rand() % 100;
+		a[i] = rand() % 100 + 1;
 }
 void printArray(const int *a, int n) {
 	for (int i = 0; i < n; i++)
@@ -85,12 +85,12 @@ void erase_zeros(int *&a, int &n) {
 bool IsPowerN(int k, int n) {
 	if (k > 0 && n > 1)
 	{
-		while (k % n==0)
+		while (k%n==0)
 			k /= n;
-		return (k == 1);
+		
+		return (k==1);
 	}
-	else
-		return false;
+	return false;
 }
 // 5.	Дана матрица размера M × N и целое число K(1 ≤ K ≤ N).
 // Вывести элементы K - го столбца данной матрицы.
@@ -103,9 +103,7 @@ void printColumn(int **pp, int n, int k) {
 int main()
 {
 	srand(time(NULL));
-
 	setlocale(LC_ALL, "Rus");
-
 	int tn = 0;
 
 	while (true)
@@ -144,7 +142,7 @@ int main()
 			cout << "элементы, являющиеся степенями числа " << n << ": " << endl;
 			for (int i = 0; i < 10; i++)
 			{
-				if (IsPowerN(p[i], n))
+				if (IsPowerN(p[i], n)==true)
 				{
 					cout << p[i] << " ";
 					j++;
